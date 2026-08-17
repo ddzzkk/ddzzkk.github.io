@@ -201,7 +201,7 @@ def base_page(site: dict, prefix: str, active: str, title: str, description: str
   <meta name="description" content="{esc(description)}">
   <link rel="stylesheet" href="{prefix}assets/style.css">
   <link rel="alternate" type="application/rss+xml" title="{esc(site["title"])} RSS" href="{prefix}feed.xml">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛠</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📜</text></svg>">
 </head>
 <body>
   <div class="grid"></div>
