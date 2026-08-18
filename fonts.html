@@ -35,7 +35,7 @@
     .wrap { max-width: 980px; margin: 0 auto; }
     header { text-align: center; margin-bottom: 1.6rem; }
     h1 { font-size: 2rem; letter-spacing: 0.18em; }
-    header p { margin-top: 0.6rem; color: var(--muted); max-width: 640px; margin-inline: auto; }
+    header p { margin-top: 0.6rem; color: var(--muted); max-width: 680px; margin-inline: auto; }
     .note {
       background: rgba(184, 134, 59, 0.1);
       border: 1px solid var(--line);
@@ -134,131 +134,195 @@
   <div class="wrap">
     <header>
       <h1>字体预览与选择</h1>
-      <p>点卡片右下角的「复制」即可复制对应字体代码。选定后把编号或名称告诉我，我会把它接到博客里。</p>
+      <p>点卡片右下角的「复制」即可复制对应字体代码。选定后把编号或名称告诉我，我会把它接到博客里。
+        建议用浏览器（Chrome / Edge）打开本页；VSCode 内嵌预览可能拦截联网字体，但不影响查看全部内容。</p>
     </header>
 
     <div class="note">
-      分三类：<strong>系统字体</strong>完全离线可用，效果取决于设备；<strong>网页字体</strong>需要联网加载（国内访问
-      Google Fonts 慢时，可把 <code>fonts.googleapis.com</code> 换成 <code>fonts.loli.net</code> 镜像）；
-      <strong>代码字体</strong>只影响代码块。带 <span style="color:#9d3c2f">★推荐</span> 的适合博客正文。
+      只有<strong>网页字体</strong>和<strong>代码字体</strong>是「别人打开网站就能看到」的效果
+      （需要联网加载，国内访问 Google Fonts 慢时，可把 <code>fonts.googleapis.com</code> 换成
+      <code>fonts.loli.net</code> 镜像）；<strong>系统字体</strong>取决于访客自己的设备，不保证一致。
+      带 <span style="color:#9d3c2f">★推荐</span> 的适合博客正文。
     </div>
 
-    <div id="groups"></div>
+    <section>
+      <h2>网页字体 · 访客打开即可见（需联网加载）</h2>
+      <div class="grid">
+        <article class="card">
+          <div class="card-head"><span class="num">01</span><h3>霞鹜文楷</h3><span class="badge rec">★推荐</span></div>
+          <p class="desc">开源文楷，博客正文最推荐，jsDelivr 国内可用性较好。</p>
+          <p class="sample" style="font-family:'LXGW WenKai', serif">山不在高，有仙则名。水不在深，有龙则灵。斯是陋室，惟吾德馨。<span class="latin">0123456789 · ABCDEFG · The quick brown fox jumps over the lazy dog.</span></p>
+          <div class="code"><code>font-family: 'LXGW WenKai', serif;</code><button class="copy" data-family="'LXGW WenKai', serif">复制</button></div>
+        </article>
+        <article class="card">
+          <div class="card-head"><span class="num">02</span><h3>得意黑 Smiley Sans</h3><span class="badge">访客可见</span></div>
+          <p class="desc">现代倾斜标题字体，个性强，不适合长正文。</p>
+          <p class="sample" style="font-family:'Smiley Sans Oblique', sans-serif">山不在高，有仙则名。水不在深，有龙则灵。斯是陋室，惟吾德馨。<span class="latin">0123456789 · ABCDEFG · The quick brown fox jumps over the lazy dog.</span></p>
+          <div class="code"><code>font-family: 'Smiley Sans Oblique', sans-serif;</code><button class="copy" data-family="'Smiley Sans Oblique', sans-serif">复制</button></div>
+        </article>
+        <article class="card">
+          <div class="card-head"><span class="num">03</span><h3>思源宋体（在线版）</h3><span class="badge rec">★推荐</span></div>
+          <p class="desc">保证各设备渲染一致的正统宋体。</p>
+          <p class="sample" style="font-family:'Noto Serif SC', serif">山不在高，有仙则名。水不在深，有龙则灵。斯是陋室，惟吾德馨。<span class="latin">0123456789 · ABCDEFG · The quick brown fox jumps over the lazy dog.</span></p>
+          <div class="code"><code>font-family: 'Noto Serif SC', serif;</code><button class="copy" data-family="'Noto Serif SC', serif">复制</button></div>
+        </article>
+        <article class="card">
+          <div class="card-head"><span class="num">04</span><h3>思源黑体（在线版）</h3><span class="badge">访客可见</span></div>
+          <p class="desc">保证各设备渲染一致的现代黑体。</p>
+          <p class="sample" style="font-family:'Noto Sans SC', sans-serif">山不在高，有仙则名。水不在深，有龙则灵。斯是陋室，惟吾德馨。<span class="latin">0123456789 · ABCDEFG · The quick brown fox jumps over the lazy dog.</span></p>
+          <div class="code"><code>font-family: 'Noto Sans SC', sans-serif;</code><button class="copy" data-family="'Noto Sans SC', sans-serif">复制</button></div>
+        </article>
+        <article class="card">
+          <div class="card-head"><span class="num">05</span><h3>站酷小薇</h3><span class="badge">访客可见</span></div>
+          <p class="desc">文艺纤细宋体，很有书卷气。</p>
+          <p class="sample" style="font-family:'ZCOOL XiaoWei', serif">山不在高，有仙则名。水不在深，有龙则灵。斯是陋室，惟吾德馨。<span class="latin">0123456789 · ABCDEFG · The quick brown fox jumps over the lazy dog.</span></p>
+          <div class="code"><code>font-family: 'ZCOOL XiaoWei', serif;</code><button class="copy" data-family="'ZCOOL XiaoWei', serif">复制</button></div>
+        </article>
+        <article class="card">
+          <div class="card-head"><span class="num">06</span><h3>站酷庆科黄油体</h3><span class="badge">访客可见</span></div>
+          <p class="desc">圆润饱满，适合活泼的标题。</p>
+          <p class="sample" style="font-family:'ZCOOL QingKe HuangYou', sans-serif">山不在高，有仙则名。水不在深，有龙则灵。斯是陋室，惟吾德馨。<span class="latin">0123456789 · ABCDEFG · The quick brown fox jumps over the lazy dog.</span></p>
+          <div class="code"><code>font-family: 'ZCOOL QingKe HuangYou', sans-serif;</code><button class="copy" data-family="'ZCOOL QingKe HuangYou', sans-serif">复制</button></div>
+        </article>
+        <article class="card">
+          <div class="card-head"><span class="num">07</span><h3>站酷快乐体</h3><span class="badge">访客可见</span></div>
+          <p class="desc">活泼可爱的圆体，亲和力强。</p>
+          <p class="sample" style="font-family:'ZCOOL KuaiLe', sans-serif">山不在高，有仙则名。水不在深，有龙则灵。斯是陋室，惟吾德馨。<span class="latin">0123456789 · ABCDEFG · The quick brown fox jumps over the lazy dog.</span></p>
+          <div class="code"><code>font-family: 'ZCOOL KuaiLe', sans-serif;</code><button class="copy" data-family="'ZCOOL KuaiLe', sans-serif">复制</button></div>
+        </article>
+        <article class="card">
+          <div class="card-head"><span class="num">08</span><h3>马善政毛笔楷书</h3><span class="badge">访客可见</span></div>
+          <p class="desc">毛笔行楷，做大标题或装饰字很好看。</p>
+          <p class="sample" style="font-family:'Ma Shan Zheng', serif">山不在高，有仙则名。水不在深，有龙则灵。斯是陋室，惟吾德馨。<span class="latin">0123456789 · ABCDEFG · The quick brown fox jumps over the lazy dog.</span></p>
+          <div class="code"><code>font-family: 'Ma Shan Zheng', serif;</code><button class="copy" data-family="'Ma Shan Zheng', serif">复制</button></div>
+        </article>
+        <article class="card">
+          <div class="card-head"><span class="num">09</span><h3>流江毛草</h3><span class="badge">访客可见</span></div>
+          <p class="desc">草书，只适合大字装饰，正文不可读。</p>
+          <p class="sample" style="font-family:'Liu Jian Mao Cao', cursive">山不在高，有仙则名。水不在深，有龙则灵。斯是陋室，惟吾德馨。<span class="latin">0123456789 · ABCDEFG · The quick brown fox jumps over the lazy dog.</span></p>
+          <div class="code"><code>font-family: 'Liu Jian Mao Cao', cursive;</code><button class="copy" data-family="'Liu Jian Mao Cao', cursive">复制</button></div>
+        </article>
+        <article class="card">
+          <div class="card-head"><span class="num">10</span><h3>龙藏</h3><span class="badge">访客可见</span></div>
+          <p class="desc">手写风，适合随笔或短笺感的内容。</p>
+          <p class="sample" style="font-family:'Long Cang', cursive">山不在高，有仙则名。水不在深，有龙则灵。斯是陋室，惟吾德馨。<span class="latin">0123456789 · ABCDEFG · The quick brown fox jumps over the lazy dog.</span></p>
+          <div class="code"><code>font-family: 'Long Cang', cursive;</code><button class="copy" data-family="'Long Cang', cursive">复制</button></div>
+        </article>
+        <article class="card">
+          <div class="card-head"><span class="num">11</span><h3>智莽星</h3><span class="badge">访客可见</span></div>
+          <p class="desc">狂草，装饰性极强，慎用。</p>
+          <p class="sample" style="font-family:'Zhi Mang Xing', cursive">山不在高，有仙则名。水不在深，有龙则灵。斯是陋室，惟吾德馨。<span class="latin">0123456789 · ABCDEFG · The quick brown fox jumps over the lazy dog.</span></p>
+          <div class="code"><code>font-family: 'Zhi Mang Xing', cursive;</code><button class="copy" data-family="'Zhi Mang Xing', cursive">复制</button></div>
+        </article>
+      </div>
+    </section>
 
-    <footer>选好了就把编号告诉我，例如：「用 13 号霞鹜文楷」。</footer>
+    <section>
+      <h2>代码字体 · 访客打开即可见（需联网加载）</h2>
+      <div class="grid">
+        <article class="card">
+          <div class="card-head"><span class="num">12</span><h3>JetBrains Mono</h3><span class="badge">访客可见</span></div>
+          <p class="desc">程序员常用等宽字体，清晰现代。</p>
+          <p class="sample" style="font-family:'JetBrains Mono', ui-monospace, Consolas, monospace">const serif = "Noto Serif SC"; return 0xCAFEBABE;</p>
+          <div class="code"><code>font-family: 'JetBrains Mono', ui-monospace, Consolas, monospace;</code><button class="copy" data-family="'JetBrains Mono', ui-monospace, Consolas, monospace">复制</button></div>
+        </article>
+        <article class="card">
+          <div class="card-head"><span class="num">13</span><h3>Fira Code</h3><span class="badge">访客可见</span></div>
+          <p class="desc">自带编程连字（例如 !=、=>），代码党最爱。</p>
+          <p class="sample" style="font-family:'Fira Code', ui-monospace, Consolas, monospace">const serif = "Noto Serif SC"; return 0xCAFEBABE;</p>
+          <div class="code"><code>font-family: 'Fira Code', ui-monospace, Consolas, monospace;</code><button class="copy" data-family="'Fira Code', ui-monospace, Consolas, monospace">复制</button></div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>系统字体 · 仅本机可见（别人打开未必一样）</h2>
+      <div class="grid">
+        <article class="card">
+          <div class="card-head"><span class="num">14</span><h3>系统等宽</h3><span class="badge">仅本机</span></div>
+          <p class="desc">各平台自带等宽字体，仅本机可见。</p>
+          <p class="sample" style="font-family:ui-monospace, 'SF Mono', 'Cascadia Mono', Consolas, 'Menlo', monospace">const serif = "Noto Serif SC"; return 0xCAFEBABE;</p>
+          <div class="code"><code>font-family: ui-monospace, 'SF Mono', 'Cascadia Mono', Consolas, 'Menlo', monospace;</code><button class="copy" data-family="ui-monospace, 'SF Mono', 'Cascadia Mono', Consolas, 'Menlo', monospace">复制</button></div>
+        </article>
+        <article class="card">
+          <div class="card-head"><span class="num">15</span><h3>宋体</h3><span class="badge rec">★推荐</span></div>
+          <p class="desc">最稳的古典正文选择，Windows / macOS 都自带。</p>
+          <p class="sample" style="font-family:'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', 'SimSun', serif">山不在高，有仙则名。水不在深，有龙则灵。斯是陋室，惟吾德馨。<span class="latin">0123456789 · ABCDEFG · The quick brown fox jumps over the lazy dog.</span></p>
+          <div class="code"><code>font-family: 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', 'SimSun', serif;</code><button class="copy" data-family="'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', 'SimSun', serif">复制</button></div>
+        </article>
+        <article class="card">
+          <div class="card-head"><span class="num">16</span><h3>思源宋体</h3><span class="badge rec">★推荐</span></div>
+          <p class="desc">现代宋体，笔画更干净利落（需本机已安装）。</p>
+          <p class="sample" style="font-family:'Source Han Serif SC', 'Noto Serif SC', 'Songti SC', serif">山不在高，有仙则名。水不在深，有龙则灵。斯是陋室，惟吾德馨。<span class="latin">0123456789 · ABCDEFG · The quick brown fox jumps over the lazy dog.</span></p>
+          <div class="code"><code>font-family: 'Source Han Serif SC', 'Noto Serif SC', 'Songti SC', serif;</code><button class="copy" data-family="'Source Han Serif SC', 'Noto Serif SC', 'Songti SC', serif">复制</button></div>
+        </article>
+        <article class="card">
+          <div class="card-head"><span class="num">17</span><h3>楷体</h3><span class="badge rec">★推荐</span></div>
+          <p class="desc">手写楷书，书卷气最浓，适合古典风正文。</p>
+          <p class="sample" style="font-family:'Kaiti SC', 'KaiTi', 'STKaiti', 'UKai', serif">山不在高，有仙则名。水不在深，有龙则灵。斯是陋室，惟吾德馨。<span class="latin">0123456789 · ABCDEFG · The quick brown fox jumps over the lazy dog.</span></p>
+          <div class="code"><code>font-family: 'Kaiti SC', 'KaiTi', 'STKaiti', 'UKai', serif;</code><button class="copy" data-family="'Kaiti SC', 'KaiTi', 'STKaiti', 'UKai', serif">复制</button></div>
+        </article>
+        <article class="card">
+          <div class="card-head"><span class="num">18</span><h3>仿宋</h3><span class="badge">仅本机</span></div>
+          <p class="desc">公文仿宋，笔画细长，清秀古风。</p>
+          <p class="sample" style="font-family:'FangSong', 'STFangsong', serif">山不在高，有仙则名。水不在深，有龙则灵。斯是陋室，惟吾德馨。<span class="latin">0123456789 · ABCDEFG · The quick brown fox jumps over the lazy dog.</span></p>
+          <div class="code"><code>font-family: 'FangSong', 'STFangsong', serif;</code><button class="copy" data-family="'FangSong', 'STFangsong', serif">复制</button></div>
+        </article>
+        <article class="card">
+          <div class="card-head"><span class="num">19</span><h3>隶书</h3><span class="badge">仅本机</span></div>
+          <p class="desc">汉隶风格，标题感强，正文慎用。</p>
+          <p class="sample" style="font-family:'LiSu', 'STLiti', '隶书', serif">山不在高，有仙则名。水不在深，有龙则灵。斯是陋室，惟吾德馨。<span class="latin">0123456789 · ABCDEFG · The quick brown fox jumps over the lazy dog.</span></p>
+          <div class="code"><code>font-family: 'LiSu', 'STLiti', '隶书', serif;</code><button class="copy" data-family="'LiSu', 'STLiti', '隶书', serif">复制</button></div>
+        </article>
+        <article class="card">
+          <div class="card-head"><span class="num">20</span><h3>行楷</h3><span class="badge">仅本机</span></div>
+          <p class="desc">行书手写感，适合标题或短句。</p>
+          <p class="sample" style="font-family:'Xingkai SC', 'STXingkai', '华文行楷', serif">山不在高，有仙则名。水不在深，有龙则灵。斯是陋室，惟吾德馨。<span class="latin">0123456789 · ABCDEFG · The quick brown fox jumps over the lazy dog.</span></p>
+          <div class="code"><code>font-family: 'Xingkai SC', 'STXingkai', '华文行楷', serif;</code><button class="copy" data-family="'Xingkai SC', 'STXingkai', '华文行楷', serif">复制</button></div>
+        </article>
+        <article class="card">
+          <div class="card-head"><span class="num">21</span><h3>黑体</h3><span class="badge">仅本机</span></div>
+          <p class="desc">现代简洁无衬线，网页默认观感。</p>
+          <p class="sample" style="font-family:'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', 'Source Han Sans SC', 'Noto Sans SC', sans-serif">山不在高，有仙则名。水不在深，有龙则灵。斯是陋室，惟吾德馨。<span class="latin">0123456789 · ABCDEFG · The quick brown fox jumps over the lazy dog.</span></p>
+          <div class="code"><code>font-family: 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', 'Source Han Sans SC', 'Noto Sans SC', sans-serif;</code><button class="copy" data-family="'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', 'Source Han Sans SC', 'Noto Sans SC', sans-serif">复制</button></div>
+        </article>
+        <article class="card">
+          <div class="card-head"><span class="num">22</span><h3>圆体</h3><span class="badge">仅本机</span></div>
+          <p class="desc">圆润柔和，偏可爱风。</p>
+          <p class="sample" style="font-family:'Yuanti SC', 'YouYuan', '幼圆', sans-serif">山不在高，有仙则名。水不在深，有龙则灵。斯是陋室，惟吾德馨。<span class="latin">0123456789 · ABCDEFG · The quick brown fox jumps over the lazy dog.</span></p>
+          <div class="code"><code>font-family: 'Yuanti SC', 'YouYuan', '幼圆', sans-serif;</code><button class="copy" data-family="'Yuanti SC', 'YouYuan', '幼圆', sans-serif">复制</button></div>
+        </article>
+        <article class="card">
+          <div class="card-head"><span class="num">23</span><h3>Georgia</h3><span class="badge">仅本机</span></div>
+          <p class="desc">西文衬线经典，数字和英文很好看。</p>
+          <p class="sample" style="font-family:Georgia, 'Times New Roman', serif">山不在高，有仙则名。水不在深，有龙则灵。斯是陋室，惟吾德馨。<span class="latin">0123456789 · ABCDEFG · The quick brown fox jumps over the lazy dog.</span></p>
+          <div class="code"><code>font-family: Georgia, 'Times New Roman', serif;</code><button class="copy" data-family="Georgia, 'Times New Roman', serif">复制</button></div>
+        </article>
+        <article class="card">
+          <div class="card-head"><span class="num">24</span><h3>Times New Roman</h3><span class="badge">仅本机</span></div>
+          <p class="desc">最熟悉的西文衬线，稳但普通。</p>
+          <p class="sample" style="font-family:'Times New Roman', Times, serif">山不在高，有仙则名。水不在深，有龙则灵。斯是陋室，惟吾德馨。<span class="latin">0123456789 · ABCDEFG · The quick brown fox jumps over the lazy dog.</span></p>
+          <div class="code"><code>font-family: 'Times New Roman', Times, serif;</code><button class="copy" data-family="'Times New Roman', Times, serif">复制</button></div>
+        </article>
+        <article class="card">
+          <div class="card-head"><span class="num">25</span><h3>Palatino</h3><span class="badge">仅本机</span></div>
+          <p class="desc">西文书卷气，稍带人文感。</p>
+          <p class="sample" style="font-family:Palatino, 'Palatino Linotype', 'Book Antiqua', Georgia, serif">山不在高，有仙则名。水不在深，有龙则灵。斯是陋室，惟吾德馨。<span class="latin">0123456789 · ABCDEFG · The quick brown fox jumps over the lazy dog.</span></p>
+          <div class="code"><code>font-family: Palatino, 'Palatino Linotype', 'Book Antiqua', Georgia, serif;</code><button class="copy" data-family="Palatino, 'Palatino Linotype', 'Book Antiqua', Georgia, serif">复制</button></div>
+        </article>
+        <article class="card">
+          <div class="card-head"><span class="num">26</span><h3>Garamond</h3><span class="badge">仅本机</span></div>
+          <p class="desc">西文古典优雅，适合标题点缀。</p>
+          <p class="sample" style="font-family:'EB Garamond', Garamond, Baskerville, 'Times New Roman', serif">山不在高，有仙则名。水不在深，有龙则灵。斯是陋室，惟吾德馨。<span class="latin">0123456789 · ABCDEFG · The quick brown fox jumps over the lazy dog.</span></p>
+          <div class="code"><code>font-family: 'EB Garamond', Garamond, Baskerville, 'Times New Roman', serif;</code><button class="copy" data-family="'EB Garamond', Garamond, Baskerville, 'Times New Roman', serif">复制</button></div>
+        </article>
+      </div>
+    </section>
+
+    <footer>选好了就把编号告诉我，例如：「用 1 号霞鹜文楷」。</footer>
   </div>
 
   <script>
-    const fonts = [
-      { group: "system", name: "宋体", rec: true,
-        desc: "最稳的古典正文选择，Windows / macOS 都自带。",
-        family: '"Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", serif' },
-      { group: "system", name: "思源宋体", rec: true,
-        desc: "现代宋体，笔画更干净利落（需本机已安装）。",
-        family: '"Source Han Serif SC", "Noto Serif SC", "Songti SC", serif' },
-      { group: "system", name: "楷体", rec: true,
-        desc: "手写楷书，书卷气最浓，适合古典风正文。",
-        family: '"Kaiti SC", "KaiTi", "STKaiti", "UKai", serif' },
-      { group: "system", name: "仿宋",
-        desc: "公文仿宋，笔画细长，清秀古风。",
-        family: '"FangSong", "STFangsong", serif' },
-      { group: "system", name: "隶书",
-        desc: "汉隶风格，标题感强，正文慎用。",
-        family: '"LiSu", "STLiti", "隶书", serif' },
-      { group: "system", name: "行楷",
-        desc: "行书手写感，适合标题或短句。",
-        family: '"Xingkai SC", "STXingkai", "华文行楷", serif' },
-      { group: "system", name: "黑体",
-        desc: "现代简洁无衬线，网页默认观感。",
-        family: '"PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", "Source Han Sans SC", "Noto Sans SC", sans-serif' },
-      { group: "system", name: "圆体",
-        desc: "圆润柔和，偏可爱风。",
-        family: '"Yuanti SC", "YouYuan", "幼圆", sans-serif' },
-      { group: "system", name: "Georgia",
-        desc: "西文衬线经典，数字和英文很好看。",
-        family: 'Georgia, "Times New Roman", serif' },
-      { group: "system", name: "Times New Roman",
-        desc: "最熟悉的西文衬线，稳但普通。",
-        family: '"Times New Roman", Times, serif' },
-      { group: "system", name: "Palatino",
-        desc: "西文书卷气，稍带人文感。",
-        family: 'Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif' },
-      { group: "system", name: "Garamond",
-        desc: "西文古典优雅，适合标题点缀。",
-        family: '"EB Garamond", Garamond, Baskerville, "Times New Roman", serif' },
-
-      { group: "web", name: "霞鹜文楷", rec: true,
-        desc: "开源文楷，博客正文最推荐，jsDelivr 国内可用性较好。",
-        family: '"LXGW WenKai", serif' },
-      { group: "web", name: "得意黑 Smiley Sans",
-        desc: "现代倾斜标题字体，个性强，不适合长正文。",
-        family: '"Smiley Sans Oblique", sans-serif' },
-      { group: "web", name: "思源宋体（在线版）", rec: true,
-        desc: "保证各设备渲染一致的正统宋体。",
-        family: '"Noto Serif SC", serif' },
-      { group: "web", name: "思源黑体（在线版）",
-        desc: "保证各设备渲染一致的现代黑体。",
-        family: '"Noto Sans SC", sans-serif' },
-      { group: "web", name: "站酷小薇",
-        desc: "文艺纤细宋体，很有书卷气。",
-        family: '"ZCOOL XiaoWei", serif' },
-      { group: "web", name: "站酷庆科黄油体",
-        desc: "圆润饱满，适合活泼的标题。",
-        family: '"ZCOOL QingKe HuangYou", sans-serif' },
-      { group: "web", name: "站酷快乐体",
-        desc: "活泼可爱的圆体，亲和力强。",
-        family: '"ZCOOL KuaiLe", sans-serif' },
-      { group: "web", name: "马善政毛笔楷书",
-        desc: "毛笔行楷，做大标题或装饰字很好看。",
-        family: '"Ma Shan Zheng", serif' },
-      { group: "web", name: "流江毛草",
-        desc: "草书，只适合大字装饰，正文不可读。",
-        family: '"Liu Jian Mao Cao", cursive' },
-      { group: "web", name: "龙藏",
-        desc: "手写风，适合随笔或短笺感的内容。",
-        family: '"Long Cang", cursive' },
-      { group: "web", name: "智莽星",
-        desc: "狂草，装饰性极强，慎用。",
-        family: '"Zhi Mang Xing", cursive' },
-
-      { group: "mono", name: "系统等宽",
-        desc: "各平台自带等宽字体，代码块默认。",
-        family: 'ui-monospace, "SF Mono", "Cascadia Mono", Consolas, "Menlo", monospace',
-        sample: 'const serif = "Noto Serif SC"; return 0xCAFEBABE;' },
-      { group: "mono", name: "JetBrains Mono",
-        desc: "程序员常用等宽字体，清晰现代。",
-        family: '"JetBrains Mono", ui-monospace, Consolas, monospace',
-        sample: 'const serif = "Noto Serif SC"; return 0xCAFEBABE;' },
-      { group: "mono", name: "Fira Code",
-        desc: "自带编程连字（例如 !=、=>），代码党最爱。",
-        family: '"Fira Code", ui-monospace, Consolas, monospace',
-        sample: 'const serif = "Noto Serif SC"; return 0xCAFEBABE;' },
-    ];
-
-    const groups = [
-      { key: "system", title: "系统字体（无需联网）" },
-      { key: "web", title: "网页字体（需要联网）" },
-      { key: "mono", title: "代码等宽字体（代码块用）" },
-    ];
-
-    const sampleCN = "山不在高，有仙则名。水不在深，有龙则灵。斯是陋室，惟吾德馨。";
-    const sampleLatin = "0123456789 · ABCDEFG · The quick brown fox jumps over the lazy dog.";
-
-    function copyCss(btn, family) {
-      const css = "font-family: " + family + ";";
-      const done = () => {
-        const old = btn.textContent;
-        btn.textContent = "已复制 ✓";
-        btn.classList.add("ok");
-        setTimeout(() => { btn.textContent = old; btn.classList.remove("ok"); }, 1300);
-      };
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(css).then(done).catch(() => fallbackCopy(css, done));
-      } else {
-        fallbackCopy(css, done);
-      }
-    }
-
     function fallbackCopy(text, done) {
       const ta = document.createElement("textarea");
       ta.value = text;
@@ -271,33 +335,22 @@
       done();
     }
 
-    const root = document.getElementById("groups");
-    for (const g of groups) {
-      const sec = document.createElement("section");
-      const h = document.createElement("h2");
-      h.textContent = g.title;
-      sec.appendChild(h);
-      const grid = document.createElement("div");
-      grid.className = "grid";
-
-      fonts.filter((f) => f.group === g.key).forEach((f, idx) => {
-        const card = document.createElement("article");
-        card.className = "card";
-        const num = String(fonts.indexOf(f) + 1).padStart(2, "0");
-        const badge = f.rec ? '<span class="badge rec">★推荐</span>' : '<span class="badge">' + (f.group === "system" ? "系统" : f.group === "web" ? "网页" : "代码") + "</span>";
-        const sample = f.sample || sampleCN;
-        card.innerHTML =
-          '<div class="card-head"><span class="num">' + num + '</span><h3>' + f.name + "</h3>" + badge + "</div>" +
-          '<p class="desc">' + f.desc + "</p>" +
-          '<p class="sample" style=\'font-family:' + f.family + '\'>' + sample +
-            (f.group === "mono" ? "" : '<span class="latin">' + sampleLatin + "</span>") + "</p>" +
-          '<div class="code"><code>font-family: ' + f.family + ';</code><button class="copy">复制</button></div>';
-        card.querySelector(".copy").addEventListener("click", (e) => copyCss(e.target, f.family));
-        grid.appendChild(card);
-      });
-      sec.appendChild(grid);
-      root.appendChild(sec);
-    }
+    document.addEventListener("click", function (event) {
+      const btn = event.target.closest(".copy");
+      if (!btn) return;
+      const css = "font-family: " + btn.dataset.family + ";";
+      const done = () => {
+        const old = btn.textContent;
+        btn.textContent = "已复制 ✓";
+        btn.classList.add("ok");
+        setTimeout(() => { btn.textContent = old; btn.classList.remove("ok"); }, 1300);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(css).then(done).catch(() => fallbackCopy(css, done));
+      } else {
+        fallbackCopy(css, done);
+      }
+    });
   </script>
 </body>
 </html>
