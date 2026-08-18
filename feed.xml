@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
-    <title>DZK 的小站</title>
+    <title>个人主页</title>
     <link>https://ddzzkk.github.io</link>
-    <description>开发者，喜欢折腾代码、工具和一切有趣的东西。这里是 DZK 的小站。</description>
+    <description>这里写一段关于你的介绍。</description>
     <language>zh-CN</language>
     <item>
-      <title>你好，世界</title>
+      <title>示例文章（占位）</title>
       <link>https://ddzzkk.github.io/post/hello-world.html</link>
       <guid>https://ddzzkk.github.io/post/hello-world.html</guid>
-      <pubDate>Mon, 17 Aug 2026 00:00:00 +0800</pubDate>
-      <description>新博客的第一篇文章，介绍一下这个站是怎么运行的。</description>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 +0800</pubDate>
+      <description>这是一篇示例文章，内容为占位符，可以放心替换或删除。</description>
     </item>
   </channel>
 </rss>
