@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>字体预览与选择</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&family=ZCOOL+XiaoWei&family=ZCOOL+QingKe+HuangYou&family=ZCOOL+KuaiLe&family=Ma+Shan+Zheng&family=Liu+Jian+Mao+Cao&family=Long+Cang&family=Zhi+Mang+Xing&family=JetBrains+Mono:wght@400;600&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont/style.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/cn-fontsource-smiley-sans-oblique-regular/font.css" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f5edd9;
+      --card: #fdf9ec;
+      --ink: #3f2f1e;
+      --muted: #7a623f;
+      --line: #d9c49a;
+      --gold: #b8863b;
+      --code-bg: #33261a;
+      --code-ink: #eadfc0;
+      --font-serif: "Noto Serif SC", "Songti SC", SimSun, Georgia, serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-serif);
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse at 15% 8%, rgba(200, 165, 95, 0.14), transparent 45%),
+        radial-gradient(ellipse at 85% 92%, rgba(150, 115, 60, 0.12), transparent 45%),
+        var(--paper);
+      line-height: 1.7;
+      padding: 2rem 1rem 4rem;
+    }
+    .wrap { max-width: 980px; margin: 0 auto; }
+    header { text-align: center; margin-bottom: 1.6rem; }
+    h1 { font-size: 2rem; letter-spacing: 0.18em; }
+    header p { margin-top: 0.6rem; color: var(--muted); max-width: 640px; margin-inline: auto; }
+    .note {
+      background: rgba(184, 134, 59, 0.1);
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--gold);
+      border-radius: 4px;
+      padding: 0.8rem 1.1rem;
+      margin-bottom: 1.8rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .note code { color: var(--ink); }
+    section + section { margin-top: 2.4rem; }
+    h2 { font-size: 1.25rem; letter-spacing: 0.12em; margin-bottom: 0.9rem; }
+    h2::before { content: "❖ "; color: var(--gold); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 1rem 1.1rem 0.9rem;
+      box-shadow: 0 4px 14px rgba(90, 70, 35, 0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .card-head { display: flex; align-items: baseline; gap: 0.55rem; }
+    .num { color: var(--gold); font-size: 0.8rem; }
+    .card-head h3 { font-size: 1.05rem; }
+    .badge {
+      margin-left: auto;
+      font-size: 0.7rem;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.08rem 0.5rem;
+      white-space: nowrap;
+    }
+    .badge.rec { color: #9d3c2f; border-color: #c87f6e; background: rgba(157, 60, 47, 0.07); }
+    .desc { font-size: 0.82rem; color: var(--muted); }
+    .sample {
+      padding: 0.85rem 0.95rem;
+      border: 1px dashed var(--line);
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.45);
+      font-size: 1.05rem;
+      line-height: 1.9;
+    }
+    .sample .latin { display: block; font-size: 0.82rem; opacity: 0.75; margin-top: 0.35rem; }
+    .code {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--code-bg);
+      border-radius: 4px;
+      padding: 0.5rem 0.7rem;
+    }
+    .code code {
+      flex: 1;
+      font-family: "JetBrains Mono", Consolas, monospace;
+      font-size: 0.72rem;
+      color: var(--code-ink);
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .copy {
+      flex-shrink: 0;
+      font-family: var(--font-serif);
+      font-size: 0.78rem;
+      color: var(--ink);
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 0.28rem 0.7rem;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.15s;
+    }
+    .copy:hover { background: #f3e7c8; transform: translateY(-1px); }
+    .copy.ok { color: #9d3c2f; border-color: #c87f6e; }
+    footer {
+      margin-top: 2.8rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    @media (max-width: 640px) {
+      body { padding: 1.2rem 0.7rem 3rem; }
+      h1 { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>字体预览与选择</h1>
+      <p>点卡片右下角的「复制」即可复制对应字体代码。选定后把编号或名称告诉我，我会把它接到博客里。</p>
+    </header>
+
+    <div class="note">
+      分三类：<strong>系统字体</strong>完全离线可用，效果取决于设备；<strong>网页字体</strong>需要联网加载（国内访问
+      Google Fonts 慢时，可把 <code>fonts.googleapis.com</code> 换成 <code>fonts.loli.net</code> 镜像）；
+      <strong>代码字体</strong>只影响代码块。带 <span style="color:#9d3c2f">★推荐</span> 的适合博客正文。
+    </div>
+
+    <div id="groups"></div>
+
+    <footer>选好了就把编号告诉我，例如：「用 13 号霞鹜文楷」。</footer>
+  </div>
+
+  <script>
+    const fonts = [
+      { group: "system", name: "宋体", rec: true,
+        desc: "最稳的古典正文选择，Windows / macOS 都自带。",
+        family: '"Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", serif' },
+      { group: "system", name: "思源宋体", rec: true,
+        desc: "现代宋体，笔画更干净利落（需本机已安装）。",
+        family: '"Source Han Serif SC", "Noto Serif SC", "Songti SC", serif' },
+      { group: "system", name: "楷体", rec: true,
+        desc: "手写楷书，书卷气最浓，适合古典风正文。",
+        family: '"Kaiti SC", "KaiTi", "STKaiti", "UKai", serif' },
+      { group: "system", name: "仿宋",
+        desc: "公文仿宋，笔画细长，清秀古风。",
+        family: '"FangSong", "STFangsong", serif' },
+      { group: "system", name: "隶书",
+        desc: "汉隶风格，标题感强，正文慎用。",
+        family: '"LiSu", "STLiti", "隶书", serif' },
+      { group: "system", name: "行楷",
+        desc: "行书手写感，适合标题或短句。",
+        family: '"Xingkai SC", "STXingkai", "华文行楷", serif' },
+      { group: "system", name: "黑体",
+        desc: "现代简洁无衬线，网页默认观感。",
+        family: '"PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", "Source Han Sans SC", "Noto Sans SC", sans-serif' },
+      { group: "system", name: "圆体",
+        desc: "圆润柔和，偏可爱风。",
+        family: '"Yuanti SC", "YouYuan", "幼圆", sans-serif' },
+      { group: "system", name: "Georgia",
+        desc: "西文衬线经典，数字和英文很好看。",
+        family: 'Georgia, "Times New Roman", serif' },
+      { group: "system", name: "Times New Roman",
+        desc: "最熟悉的西文衬线，稳但普通。",
+        family: '"Times New Roman", Times, serif' },
+      { group: "system", name: "Palatino",
+        desc: "西文书卷气，稍带人文感。",
+        family: 'Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif' },
+      { group: "system", name: "Garamond",
+        desc: "西文古典优雅，适合标题点缀。",
+        family: '"EB Garamond", Garamond, Baskerville, "Times New Roman", serif' },
+
+      { group: "web", name: "霞鹜文楷", rec: true,
+        desc: "开源文楷，博客正文最推荐，jsDelivr 国内可用性较好。",
+        family: '"LXGW WenKai", serif' },
+      { group: "web", name: "得意黑 Smiley Sans",
+        desc: "现代倾斜标题字体，个性强，不适合长正文。",
+        family: '"Smiley Sans Oblique", sans-serif' },
+      { group: "web", name: "思源宋体（在线版）", rec: true,
+        desc: "保证各设备渲染一致的正统宋体。",
+        family: '"Noto Serif SC", serif' },
+      { group: "web", name: "思源黑体（在线版）",
+        desc: "保证各设备渲染一致的现代黑体。",
+        family: '"Noto Sans SC", sans-serif' },
+      { group: "web", name: "站酷小薇",
+        desc: "文艺纤细宋体，很有书卷气。",
+        family: '"ZCOOL XiaoWei", serif' },
+      { group: "web", name: "站酷庆科黄油体",
+        desc: "圆润饱满，适合活泼的标题。",
+        family: '"ZCOOL QingKe HuangYou", sans-serif' },
+      { group: "web", name: "站酷快乐体",
+        desc: "活泼可爱的圆体，亲和力强。",
+        family: '"ZCOOL KuaiLe", sans-serif' },
+      { group: "web", name: "马善政毛笔楷书",
+        desc: "毛笔行楷，做大标题或装饰字很好看。",
+        family: '"Ma Shan Zheng", serif' },
+      { group: "web", name: "流江毛草",
+        desc: "草书，只适合大字装饰，正文不可读。",
+        family: '"Liu Jian Mao Cao", cursive' },
+      { group: "web", name: "龙藏",
+        desc: "手写风，适合随笔或短笺感的内容。",
+        family: '"Long Cang", cursive' },
+      { group: "web", name: "智莽星",
+        desc: "狂草，装饰性极强，慎用。",
+        family: '"Zhi Mang Xing", cursive' },
+
+      { group: "mono", name: "系统等宽",
+        desc: "各平台自带等宽字体，代码块默认。",
+        family: 'ui-monospace, "SF Mono", "Cascadia Mono", Consolas, "Menlo", monospace',
+        sample: 'const serif = "Noto Serif SC"; return 0xCAFEBABE;' },
+      { group: "mono", name: "JetBrains Mono",
+        desc: "程序员常用等宽字体，清晰现代。",
+        family: '"JetBrains Mono", ui-monospace, Consolas, monospace',
+        sample: 'const serif = "Noto Serif SC"; return 0xCAFEBABE;' },
+      { group: "mono", name: "Fira Code",
+        desc: "自带编程连字（例如 !=、=>），代码党最爱。",
+        family: '"Fira Code", ui-monospace, Consolas, monospace',
+        sample: 'const serif = "Noto Serif SC"; return 0xCAFEBABE;' },
+    ];
+
+    const groups = [
+      { key: "system", title: "系统字体（无需联网）" },
+      { key: "web", title: "网页字体（需要联网）" },
+      { key: "mono", title: "代码等宽字体（代码块用）" },
+    ];
+
+    const sampleCN = "山不在高，有仙则名。水不在深，有龙则灵。斯是陋室，惟吾德馨。";
+    const sampleLatin = "0123456789 · ABCDEFG · The quick brown fox jumps over the lazy dog.";
+
+    function copyCss(btn, family) {
+      const css = "font-family: " + family + ";";
+      const done = () => {
+        const old = btn.textContent;
+        btn.textContent = "已复制 ✓";
+        btn.classList.add("ok");
+        setTimeout(() => { btn.textContent = old; btn.classList.remove("ok"); }, 1300);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(css).then(done).catch(() => fallbackCopy(css, done));
+      } else {
+        fallbackCopy(css, done);
+      }
+    }
+
+    function fallbackCopy(text, done) {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      ta.remove();
+      done();
+    }
+
+    const root = document.getElementById("groups");
+    for (const g of groups) {
+      const sec = document.createElement("section");
+      const h = document.createElement("h2");
+      h.textContent = g.title;
+      sec.appendChild(h);
+      const grid = document.createElement("div");
+      grid.className = "grid";
+
+      fonts.filter((f) => f.group === g.key).forEach((f, idx) => {
+        const card = document.createElement("article");
+        card.className = "card";
+        const num = String(fonts.indexOf(f) + 1).padStart(2, "0");
+        const badge = f.rec ? '<span class="badge rec">★推荐</span>' : '<span class="badge">' + (f.group === "system" ? "系统" : f.group === "web" ? "网页" : "代码") + "</span>";
+        const sample = f.sample || sampleCN;
+        card.innerHTML =
+          '<div class="card-head"><span class="num">' + num + '</span><h3>' + f.name + "</h3>" + badge + "</div>" +
+          '<p class="desc">' + f.desc + "</p>" +
+          '<p class="sample" style=\'font-family:' + f.family + '\'>' + sample +
+            (f.group === "mono" ? "" : '<span class="latin">' + sampleLatin + "</span>") + "</p>" +
+          '<div class="code"><code>font-family: ' + f.family + ';</code><button class="copy">复制</button></div>';
+        card.querySelector(".copy").addEventListener("click", (e) => copyCss(e.target, f.family));
+        grid.appendChild(card);
+      });
+      sec.appendChild(grid);
+      root.appendChild(sec);
+    }
+  </script>
+</body>
+</html>

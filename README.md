@@ -62,3 +62,9 @@ python3 -m http.server 8000
 ## 修改站点信息
 
 昵称、头像字母、简介、GitHub/邮箱等都在 `site.json` 里改，改完重新运行 `python3 build.py`。
+
+## 字体预览
+
+[fonts.html](fonts.html) 是一个独立的字体预览页，列出了系统字体、网页字体和代码字体，
+每种都带实际效果和可复制的 CSS。选定后把编号或字体名告诉维护者，或自行修改
+`assets/style.css` 顶部的 `--font-serif` 变量。
